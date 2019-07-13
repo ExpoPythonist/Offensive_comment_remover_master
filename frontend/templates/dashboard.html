@@ -1,0 +1,803 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Sourgrape
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'css/material-dashboard.css' %}" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="{% static 'demo/demo.css' %}" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="violet">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="#" class="simple-text logo-normal">
+          <img src="{% static 'img/admin-logo.png' %}">
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <!-- <li class="nav-item"> -->
+          <!-- <a class="nav-link" href="./dashboard.html"> -->
+          <!-- <i class="material-icons" style="width:37px;height:37px;">dashboard</i> -->
+          <!-- </a> -->
+          <!-- </li> -->
+
+          {% for page in pages %}
+
+          {% if page.selected %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/?uid={{uid}}&&page_id={{page.page_id}}">
+              <!-- <i class="material-icons" style="width:40px;height:40px;border:solid 2px #7049E2;">person</i> -->
+              <img src="{{ page.image }}" class="img"
+                style="width:40px;height:40px;border:solid 2px #7049E2;border-radius:5px;">
+            </a>
+          </li>
+
+          {% endif %}
+
+          {% endfor %}
+
+          <li class="nav-item plus-icon" data-toggle="modal" data-target="#exampleModal">
+            <a class="nav-link" href="#">
+              <i class="material-icons" style="font-size:40px;">add_box</i>
+              <!-- <p>Table List</p> -->
+            </a>
+          </li>
+          <!-- <br><br><br><br><br><br><br><br><br> -->
+          <div class="mt18">
+          </div>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="material-icons" style="width:40px;height:40px;">home</i>
+              <!-- <p>Typography</p> -->
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/settings/?uid={{uid}}">
+              <i class="material-icons" style="width:40px;height:40px;">settings</i>
+              <!-- <p>Icons</p> -->
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#logout">
+              <i class="material-icons" style="width:40px;height:40px;">exit_to_app </i>
+              <!-- <p>Maps</p> -->
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#"><b>{{curpage.name}}</b></a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="pb3 ph2">
+                  <div class="pa4-ns pa3">
+                    <div class="card-header">
+                      <span>Stats</span>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="text-center">
+                            <span class="inner-number">{{comment_count}}</span><br>
+                            <p class="st-label">ALL HIDDEN</p>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="text-center">
+                            <span class="inner-number">{{weekcount}}</span><br>
+                            <p class="st-label">THIS WEEK</p>
+                          </div>
+                        </div>
+                        <!-- <div class="col-lg-4">
+                          <div class="text-center">
+                            <span class="inner-number">0</span><br>
+                            <p class="st-label">SINCE LAST LOGIN</p>
+                          </div>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="card">
+                <div class="pb3 ph2">
+                  <div class="">
+                    <button class="addWord br-pill white pointer pull-right" data-toggle="modal"
+                      data-target="#plusModal" style="line-height:0;margin-top:10px;"><span
+                        class="br-pill">+</span></button>
+                    <ul class="nav nav-pills card-header" role="tablist" style="padding-top:0;">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" aria-expanded="true"
+                          style="color:#000;">
+                          BlackList
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#link2" role="tablist" aria-expanded="false"
+                          style="color:#000;">
+                          White List
+                        </a>
+                      </li>
+                    </ul>
+
+                    <div class="tab-content tab-space">
+                      <div class="tab-pane active text-center" id="link1" aria-expanded="true">
+                        <img src="{% static 'img/feather.png' %}">
+                        <p class="mh0 mv3 innerSubTitle">No words yet</p>
+                        <span class="tc w-100 innerText" style="max-width: 11rem;">Click the “plus” button and complete
+                          the list with “trigger words”.</span>
+                      </div>
+                      <div class="tab-pane" id="link2" aria-expanded="false">
+                        <div class="tab-pane active text-center" id="link1" aria-expanded="true">
+                          <img src="{% static 'img/feather.png' %}">
+                          <p class="mh0 mv3 innerSubTitle">No words yet</p>
+                          <span class="tc w-100 innerText" style="max-width: 11rem;">Click the “plus” button and
+                            complete the list with “trigger words”.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="card">
+                <div class="">
+                  <div class="row">
+                    <div class="col-lg-9">
+                      <div class="card-header">
+                        Automatic Sentiment Analysis
+                      </div>
+                      <div class="card-body">
+                        <p class="card-text">
+                          Automatically analyze the sentiment (positive, negative, neutral) of text in comments and hide
+                          them
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3" id="toggleswitch">
+                      <div>
+                        <!-- <div class="form-check text-center mt-3"> -->
+                        <!-- <label class="form-check-label ml-5"> -->
+                        <!-- <input class="form-check-input" type="checkbox" value="" checked id="smoking" onclick="yesno('smoking','yesnos');"> -->
+                        <!-- <span class="form-check-sign"> -->
+                        <!-- <span class="check"></span> -->
+                        <!-- </span> -->
+                        <!-- </label> -->
+                        <!-- </div> -->
+
+                        <label class="switch mt-3 ml-5" for="checkbox">
+                          <input type="checkbox" id="checkbox" 
+                          {% if curpage.sentiment_analysis %}
+                          checked
+                          {% endif %}
+                          onclick="yesno('checkbox','yesnos');" />
+                          <div class="slider round" style="position:absolute;"></div>
+                        </label>
+                        <br>
+                        <p class="text-center" id="yesnos">Status:<span
+                            style="color:#57CD79;font-weight:bold;">
+                            {% if curpage.sentiment_analysis %}
+                            ON
+                            {% else %}
+                            OFF
+                            {% endif %}
+                          </span></p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="row">
+                  <div class="col-lg-9">
+                    <div class="card-header">
+                      Analyze Ads Only
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">
+                        If ON, only ads will be analyzed and monitored. Page posts will not.
+                        <br>
+                        If OFF, all posts (ads and pages posts) will be analyzed and monitored.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <!-- <div class="form-check text-center mt-3"> -->
+                    <!-- <label class="form-check-label ml-5"> -->
+                    <!-- <input class="form-check-input" type="checkbox" value="" checked id="smoking1" onclick="yesno1('smoking1','yesnos1');"> -->
+                    <!-- <span class="form-check-sign"> -->
+                    <!-- <span class="check"></span> -->
+                    <!-- </span> -->
+                    <!-- </label> -->
+                    <!-- </div> -->
+                    <label class="switch mt-3 ml-5" for="checkbox1">
+                      <input type="checkbox" 
+                      {% if curpage.ad_only %}
+                          checked
+                          {% endif %}
+                       id="checkbox1" onclick="yesno1('checkbox1','yesnos1');" />
+                      <div class="slider round" style="position:absolute;"></div>
+                    </label>
+                    <br>
+                    <p class="text-center" id="yesnos1">Status:<span style="color:#57CD79;font-weight:bold;">
+                      {% if curpage.ad_only %}
+                      ON
+                      {% else %}
+                      OFF
+                      {% endif %}
+                    </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="pb3 ph2">
+                  <div class="pa4-ns pa3">
+
+                    <span class="pull-left"><b>Comment Log</b></span>
+                    <!-- <span class="pull-right" style="font-weight:400;">Show Comments from:
+                      <span class="dropdown">
+                        <span class="dropdown-toggle" style="font-weight:bold;cursor:pointer;" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          This Week
+                        </span>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item active" href="#">This Week</a>
+                          <a class="dropdown-item" href="#">This Month</a>
+                          <a class="dropdown-item" href="#">All Time</a>
+                          <a class="dropdown-item" href="#">Today</a>
+                        </div>
+                      </span>
+                    </span> -->
+                    
+
+                    <br><br><br>
+                    {% if comments %}
+                    {% for comment in comments %}
+                    <div><span style="font-size:14px;" class="card-text text-center">{{ comment.date}} -> {{comment.comment}}</span></div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="text-center mt-4">
+
+                      <img src="{% static 'img/feather.png' %}">
+                      <br>
+                      <span>
+                        <h4 style="font-weight:bold;font-family:'Open Sans';">Hurray, no comments yet!</h4>
+                      </span>
+                      &nbsp;
+                      <span class="card-text text-center">All hidden comments will appear here.</span>
+                    </div>
+                    {% endif %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <button type="button" class="close" id="closebutton" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content mt6 flex">
+        <!-- <div class="modal-header"> -->
+
+        <!-- </div> -->
+        <div class="modal-body">
+          <div class="pb4 w-100 pa5-l pa4-m pa3 flex">
+            <span class="popuptitle">Select the Pages</span>
+            <span class="selAll pull-right" id="checkallll" style="cursor:pointer;">Select All</span>
+          </div>
+          <div class="h-auto overflow-y-auto fade-in pb4 mh12rem">
+            <div class="col-md-12">
+
+              {% for page in pages %}
+
+              <div class="card-avatar pb-2 pt-2 bb-lightgrey">
+
+                <a href="#">
+                  <img class="img" src="{{ page.image }}"
+                    style="border-radius:50%;overflow:hidden;width: 2rem;height: 2rem;" />
+                </a>
+
+                <span class="fbPageName pr3">{{ page.name }}</span>
+
+                <div class="form-check text-center pull-right">
+                  <label class="form-check-label ml-5">
+                    <input class="form-check-input" type="checkbox" 
+                    {% if page.selected %}
+                    checked
+                    {% endif %}
+                     value="" id="checkall" name="checkall"
+                     onclick="update_page_selection('{{page.page_id}}');"
+                     >
+
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+
+              </div>
+
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer flex flex-row justify-center items-center w-100">
+          <button type="button" class="btn btn-primary changeEmailBtn" onclick="window.location.replace('/dashboard/?uid={{uid}}')">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="plusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="tc flex1 flex-column justify-center items-center h-100 mw7-ns mw5 center" style="opacity:0.9;">
+      <button type="button" class="close" id="closebutton" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="modal-dialog plusModalDialog" role="document" style="width:100%;">
+        <div class="modal-content" style="background-color:transparent;border:none;box-shadow:none!important;">
+          <div class="white f4 pa3 pb4">
+            Add a new word to the
+          </div>
+          <div>
+            <input type="text" placeholder="Type Your Word" value="" class="modalInput">
+          </div>
+          <div class="instructions mw7-ns mw5 mt4">
+            Tap ENTER to confirm or ESCAPE to cancel.
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="fixed-plugin" style="display:none;">
+    <div class="dropdown show-dropdown">
+      <a href="#" data-toggle="dropdown">
+        <i class="fa fa-cog fa-2x"> </i>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="header-title"> Sidebar Filters</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger active-color">
+            <div class="badge-colors ml-auto mr-auto">
+              <span class="badge filter badge-purple" data-color="purple"></span>
+              <span class="badge filter badge-azure" data-color="azure"></span>
+              <span class="badge filter badge-green" data-color="green"></span>
+              <span class="badge filter badge-warning" data-color="orange"></span>
+              <span class="badge filter badge-danger" data-color="danger"></span>
+              <span class="badge filter badge-rose active" data-color="rose"></span>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="header-title">Images</li>
+        <li class="active">
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="{% static 'img/sidebar-1.jpg' %}" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="{% static 'img/sidebar-2.jpg' %}" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="{% static 'img/sidebar-3.jpg' %}" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="{% static 'img/sidebar-4.jpg' %}" alt="">
+          </a>
+        </li>
+        <li class="button-container">
+          <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank"
+            class="btn btn-primary btn-block">Free Download</a>
+        </li>
+        <!-- <li class="header-title">Want more components?</li>
+            <li class="button-container">
+                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
+                  Get the pro version
+                </a>
+            </li> -->
+        <li class="button-container">
+          <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html"
+            target="_blank" class="btn btn-default btn-block">
+            View Documentation
+          </a>
+        </li>
+        <li class="button-container github-star">
+          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard"
+            data-icon="octicon-star" data-size="large" data-show-count="true"
+            aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+        </li>
+        <li class="header-title">Thank you for 95 shares!</li>
+        <li class="button-container text-center">
+          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
+          <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
+          <br>
+          <br>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!--   Core JS Files   -->
+  <script src="{% static 'js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'js/core/popper.min.js' %}"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js' %}"></script>
+  <script src="{% static 'js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="{% static 'js/plugins/sweetalert2.js' %}"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="{% static 'js/plugins/jquery.validate.min.js' %}"></script>
+  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+  <script src="{% static 'js/plugins/jquery.bootstrap-wizard.js' %}"></script>
+  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="{% static 'js/plugins/bootstrap-selectpicker.js' %}"></script>
+  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.min.js' %}"></script>
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="{% static 'js/plugins/bootstrap-tagsinput.js' %}"></script>
+  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="{% static 'js/plugins/jasny-bootstrap.min.js' %}"></script>
+  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="{% static 'js/plugins/fullcalendar.min.js' %}"></script>
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="{% static 'js/plugins/jquery-jvectormap.js' %}"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="{% static 'js/plugins/nouislider.min.js' %}"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="{% static 'js/plugins/arrive.min.js' %}"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE' %}"></script>
+  <!-- Chartist JS -->
+  <script src="{% static 'js/plugins/chartist.min.js' %}"></script>
+  <!--  Notifications Plugin    -->
+  <script src="{% static 'js/plugins/bootstrap-notify.js' %}"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'js/material-dashboard.js'  %}" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="{% static 'demo/demo.js' %}"></script>
+  <script>
+    function yesno(thecheckbox, thelabel) {      
+      sentiment_analysis(thecheckbox, thelabel);
+    }
+
+    function sentiment_analysis(thecheckbox, thelabel){
+      $.get("/api/sentiment_analysis", 
+      {
+        page_id: "{{curpage.page_id}}"
+      },
+      function(data){
+        var checkboxvar = document.getElementById(thecheckbox);
+        var labelvar = document.getElementById(thelabel);
+        if (checkboxvar.checked) {
+        labelvar.innerHTML = "Status:" + "<span style='color:#57CD79;font-weight:bold;'>" + "ON" + "</span>";
+        } else {
+        labelvar.innerHTML = "Status:" + "<span style='font-weight:bold;'>" + "OFF" + "</span>";
+        }
+      })
+    }
+
+  </script>
+  <script>
+    function yesno1(thecheckbox1, thelabel1) {
+      ad_only(thecheckbox1, thelabel1);
+    }
+
+    function ad_only(thecheckbox1, thelabel1){
+      $.get("/api/ad_only", 
+      {
+        page_id: "{{curpage.page_id}}"
+      },
+      function(data){
+        var checkboxvar1 = document.getElementById(thecheckbox1);
+      var labelvar1 = document.getElementById(thelabel1);
+      if (checkboxvar1.checked) {
+        labelvar1.innerHTML = "Status:" + "<span style='color:#57CD79;font-weight:bold;'>" + "ON" + "</span>";
+      } else {
+        labelvar1.innerHTML = "Status:" + "<span style='font-weight:bold;'>" + "OFF" + "</span>";
+      }
+      })
+    }
+  </script>
+
+  <script>
+    $('.bootstrap-switch').each(function () {
+      $this = $(this);
+      data_on_label = $this.data('on-label') || '';
+      data_off_label = $this.data('off-label') || '';
+
+      $this.bootstrapSwitch({
+        onText: data_on_label,
+        offText: data_off_label
+      });
+    });
+  </script>
+
+  <script>
+    $("#checkallll").click(function () {
+
+
+      if ($("input[type='checkbox']").prop("checked")) {
+        $(':checkbox').prop('checked', false);
+
+      } else {
+        $(':checkbox').prop('checked', true);
+
+      }
+
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $().ready(function () {
+
+        $('#exampleModal').on('hidden.bs.modal', function () {
+          window.location.reload();
+        });
+
+
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function (event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function () {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function () {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function () {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function () {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function () {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function () {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function () {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function () {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function () {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function () {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+
+  <script>
+    function update_page_selection(page_id){      
+      $.get("/api/flip_page_selection", {
+        page_id: page_id
+      }, function(data) {
+      });
+    }
+  </script>
+</body>
+
+</html>

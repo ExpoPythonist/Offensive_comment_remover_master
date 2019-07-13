@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "user": "phpmyadmin",
+    "pass": "root",
+    "db": "elio_off_com_rem"
+}

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Sourgrape
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+      <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" />
+    <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:600,700,800" />
+  <!-- CSS Files -->
+  <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  
+  <div class="wrapper"style="height:auto;">
+  <div class="flex flex-column w-110 h-100 bg-lightpink">
+  <!-- <div class="w-100 mw8 pa3 ph4-m pt4 flex items-center center flex-column justify-between items-center"> -->
+  <!-- <div class="flex h3rem mb0-ns mb3" style="width:135px"> -->
+  <!-- <div class="logo"> -->
+        <!-- <a href="http://www.creative-tim.com" class=""> -->
+          <!-- Logo -->
+        <!-- </a> -->
+   <!-- </div> -->
+  <!-- </div> -->
+  <!-- <div class="flex flex-row items-center justify-start-l justify-end flex-wrap pull-right"> -->
+  <!-- <span class="f7 gray h3rem lh3rem">Don't have an account?</span> -->
+  <!-- <a href="/signup.html"> -->
+  <!-- <button class="ml4-ns ml3 h3rem">Sign Up</button> -->
+  <!-- </a> -->
+  <!-- </div> -->
+  <!-- </div> -->
+  
+  <div class="container pt4 pa3">
+  <div class="row">
+  <div class="col-lg-4">
+  <div class="logo">
+        <a href="#" class="simple-text logo-normal">
+          <img src="../assets/img/logo.png">
+        </a>
+   </div>
+   </div>
+   
+   <div class="col-lg-8">
+   <!-- <div class="pull-right"> -->
+   <!-- <span class="f7 gray h3rem lh3rem" style="font-weight:500;">Already have an account?</span> -->
+   <!-- <span><a href="login.html"> -->
+  <!-- <button class="btn btn-secondary btn-round cancelsubs1" style="color:#7049E2;">LOG IN</button> -->
+  <!-- </a></span> -->
+	<!-- </div> -->
+   </div>
+   </div>
+   </div>
+	
+	<div class="flex1 flex-column justify-center items-center fg1 h-100 min-h-500px-l mb6-l">
+	<div class="w-50rem-l mw8-l mw6 mw21rem-xs w-100 mt0-ns mt4-m mt3 flex min-h-330px-l">
+	<div class="flex1 flex-row br3 w-100 bg-white shadow">
+	<div class="w-50-l w-100 pa5-ns pl3-ns pr2-ns pa4 pt3rem-m-s flex1 flex-column justify-between">
+	<div class="dn-l flex-row justify-between mb-1-5-rem">
+	<div class="tc step active-step">1</div>
+	<div class="tc step moon-gray">2</div>
+	<div class="tc step moon-gray">3</div>
+	</div>
+	
+	<h1 class="paymentDetTitle mv2">Payment details</h1>
+	<div class="jsx-1774581853 dn-l dib f7 moon-gray lh-copy mb2">We'll use these only to deal with the subsciption</div>
+	<!-- <span class="selAll pull-right" id="checkallll" style="cursor:pointer;">Select All</span> -->
+	
+	<div class="w-100 mt3">
+	<form>
+	<div></div>
+	<div class="group">
+      <label style="margin:0;height:auto;">
+        <div id="card-element" class="field"></div>
+      </label>
+    </div>
+    <!-- <div class="outcome"> -->
+      <!-- <div class="error"></div> -->
+      <!-- <div class="success"> -->
+        <!-- Success! Your Stripe token is <span class="token"></span> -->
+      <!-- </div> -->
+    <!-- </div> -->
+	<div class="StripeElement mt3">
+	<label class="input" style="height:auto;margin-left:0;color:#aab7c4;font-family: 'Microsoft Sans Serif';font-weight: 100;">
+	<input type="text" autocorrect="off" spellcheck="false" placeholder="Coupon code" aria-placeholder="Coupon code" aria-label="Coupon code" aria-invalid="false" name="couponcode" class="InputElementCoupon">
+	</label>
+	</div>
+	<div class="pt1">
+	<div class="flex1 flex-column items-start justify-center">
+	<div class="plan-select-label pv1 br2 pointer ttu">Select Plan:</div>
+	</div>
+	<div class="rrs">
+	<div>
+	<div role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="rrs-plan-menu" class="rrs__button"><div class="rrs__label"><span aria-label="15 Comments Analyzed/mo - Free selected" class="rrs__label__text" id="rrs-plan-label">15 Comments Analyzed/mo - Free</span><svg class="caret-icon" x="0px" y="0px" width="0.7rem" height="0.7rem" viewBox="0 -20 100 125" style="width: 0.7rem; height: 0.7rem;"><g><path d="M50.1,63.5L10.8,24.2c-3.6-3.6-9.9-1.1-9.9,4.1v0c0,1.5,0.6,3,1.7,4.1l43.3,43.3c2.3,2.3,5.9,2.3,8.2,0l43.3-43.3  c1.1-1.1,1.7-2.6,1.7-4.1v0c0-5.2-6.2-7.7-9.9-4.1L50.1,63.5" style="baseline-shift: baseline; opacity: 1; color: rgb(112, 73, 226); fill: rgb(112, 73, 226); fill-opacity: 1; stroke: rgb(112, 73, 226); stroke-width: 6; marker: none; visibility: visible; display: inline; overflow: visible;"></path></g></svg></div><input type="hidden" name="plan" value="10"></div>
+	<ul id="rrs-plan-menu" aria-labelledby="rrs-plan-label" role="menu" class="rrs__options">
+	<li role="menuitem" tabindex="-1" data-key="0" class="rrs__option rrs__option--selected rrs__option--next-selection">15 Comments Analyzed/mo - Free</li>
+	<li role="menuitem" tabindex="-1" data-key="1" class="rrs__option">150 Comments Analyzed/mo - $19/mo</li>
+	<li role="menuitem" tabindex="-1" data-key="2" class="rrs__option">500 Comments Analyzed/mo - $49/mo</li>
+	<li role="menuitem" tabindex="-1" data-key="3" class="rrs__option">1500 Comments Analyzed/mo - $99/mo</li>
+	<li role="menuitem" tabindex="-1" data-key="4" class="rrs__option">3500 Comments Analyzed/Mo - $169/mo</li>
+	<li role="menuitem" tabindex="-1" data-key="5" class="rrs__option">7500 Comments Analyzed/Mo - $299/mo</li>
+	<li role="menuitem" tabindex="-1" data-key="6" class="rrs__option">13000 Comments Analyzed/Mo - $449/mo</li>
+	<li role="menuitem" tabindex="-1" data-key="7" class="rrs__option">20000 Comments Analyzed/Mo - $599/mo</li>
+	</ul>
+	</div>
+	</div>
+	<div class="flex1 flex-row justify-between items-center w-100">
+		<button class="ttu pointer outlineButton w-10rem-l" onclick="location.href='page-select.html';">previous step</button>
+		<button class="ttu pointer filledButton w-10rem-l" style="opacity: 1;">finish</button>
+		</div>
+	</div>
+	</form>
+	</div>
+	</div>
+	
+	<div class="w-70-1 pa5 pl2 pr2  dib-l flex flex-column justify-between">
+	<div class="flex1 flex-row justify-center">
+	<div class="tc step moon-gray">1</div>
+	<div class="tc step moon-gray">2</div>
+	<div class="tc step active-step">3</div>
+	</div>
+	<div class="tc mt4">
+	<i class="material-icons" style="font-size:50px;color:#8f3fec;">credit_card</i>
+	<h1 class="f71" style="font-weight:bold;">Payment Details</h1>
+	</div>
+	<div class="flex1 flex-row justify-between pt2">
+	<div class="tc w-50 ma2 price-block">
+	<div class="flex1 flex-column">
+	<div class="tier-nickname">Tier Free</div>
+	<div class="tier-price">$0 <span class="tier-price-label">per month</span>
+	</div>
+	<div class="tier-amount-label">Up to 15 analyzed comments/mo</div>
+	</div>
+	</div>
+	
+
+	<div class="tc w-50 ma2 price-block">
+	<div class="flex1 flex-column">
+	<div class="tier-nickname">Tier 1</div>
+	<div class="tier-price">$19 <span class="tier-price-label">per month</span>
+	</div>
+	<div class="tier-amount-label">Up to 150 analyzed comments/mo</div>
+	</div>
+	</div>
+	
+	<div class="tc w-50 ma2 price-block">
+	<div class="flex1 flex-column">
+	<div class="tier-nickname">Tier 2</div>
+	<div class="tier-price">$49 <span class="tier-price-label">per month</span>
+	</div>
+	<div class="tier-amount-label">Up to 500 analyzed comments/mo</div>
+	</div>
+	</div>
+	
+	<div class="tc w-50 ma2 price-block">
+	<div class="flex1 flex-column">
+	<div class="tier-nickname">Tier 3</div>
+	<div class="tier-price">$99 <span class="tier-price-label">per month</span>
+	</div>
+	<div class="tier-amount-label">Up to 1500 analyzed comments/mo</div>
+	</div>
+	</div>	
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	
+	
+	</div>
+   
+   
+   </div>
+   
+     <div class="modal fade" id="uncheckModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color:#f9f8fdb3;">
+  <!-- <button type="button" class="close" id="closebutton" data-dismiss="modal" aria-label="Close"> -->
+          <!-- <span aria-hidden="true">&times;</span> -->
+        <!-- </button> -->
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mt6 flex1">
+      <!-- <div class="modal-header"> -->
+        
+      <!-- </div> -->
+     
+		<div class="flex1 flex-column h-auto br3 w-auto bg-white shadow pa4 pt5 items-center justify-center">
+        <i class="material-icons" style="font-size:50px;color:#f14747;">error</i>
+		<h1 class="errorTitle mt-1-5-rem mb0 tc">Error</h1>
+		<h2 class="errorText ma-1-5-rem mw20rem tc">You should be subscribed at least to one page to use Sour Grapes.</h2>
+		<div class="flex1 flex-row justify-center items-center w-100">
+        <button type="button" class="btn btn-primary changeEmailBtn ttu" data-dismiss="modal">Okay</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  
+  
+  
+  <div class="fixed-plugin" style="display:none;">
+    <div class="dropdown show-dropdown">
+      <a href="#" data-toggle="dropdown">
+        <i class="fa fa-cog fa-2x"> </i>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="header-title"> Sidebar Filters</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger active-color">
+            <div class="badge-colors ml-auto mr-auto">
+              <span class="badge filter badge-purple" data-color="purple"></span>
+              <span class="badge filter badge-azure" data-color="azure"></span>
+              <span class="badge filter badge-green" data-color="green"></span>
+              <span class="badge filter badge-warning" data-color="orange"></span>
+              <span class="badge filter badge-danger" data-color="danger"></span>
+              <span class="badge filter badge-rose active" data-color="rose"></span>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="header-title">Images</li>
+        <li class="active">
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-1.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-2.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-3.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-4.jpg" alt="">
+          </a>
+        </li>
+        <li class="button-container">
+          <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-primary btn-block">Free Download</a>
+        </li>
+        <!-- <li class="header-title">Want more components?</li>
+            <li class="button-container">
+                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
+                  Get the pro version
+                </a>
+            </li> -->
+        <li class="button-container">
+          <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
+            View Documentation
+          </a>
+        </li>
+        <li class="button-container github-star">
+          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+        </li>
+        <li class="header-title">Thank you for 95 shares!</li>
+        <li class="button-container text-center">
+          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
+          <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
+          <br>
+          <br>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="../assets/js/plugins/moment.min.js"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="../assets/js/plugins/sweetalert2.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="../assets/js/plugins/jquery.validate.min.js"></script>
+  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+  <script src="../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="../assets/js/plugins/bootstrap-selectpicker.js"></script>
+  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+  <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="../assets/js/plugins/jquery.dataTables.min.js"></script>
+  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
+  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
+  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="../assets/js/plugins/fullcalendar.min.js"></script>
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../assets/js/plugins/nouislider.min.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="../assets/js/plugins/arrive.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="../assets/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <!-- <script src="../assets/js/select.js" type="text/javascript"></script> -->
+  <!-- <script src="../assets/js/selectplan.js" type="text/javascript"></script> -->
+  <script src="https://js.stripe.com/v3/"></script>
+
+	<script>
+  $("#checkallll").click(function(){
+
+     
+       if ($("input[type='checkbox']").prop("checked"))
+       {
+           $(':checkbox').prop('checked', false);
+           
+        }
+     else{
+         $(':checkbox').prop('checked', true);
+          
+     }    
+
+ });
+ </script>
+ <script>
+ $("#UncheckAll").click(function(){
+    $("input[type='checkbox']").prop('checked',false);
+});
+
+
+$("#CheckAll").click(function(){
+    $("input[type='checkbox']").prop('checked',true);
+})
+</script>
+
+<script>
+var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+var elements = stripe.elements();
+
+var card = elements.create('card', {
+  style: {
+    base: {
+      iconColor: '#666EE8',
+      color: '#31325F',
+      lineHeight: '40px',
+      fontWeight: 400,
+      fontFamily: 'Open Sans',
+      fontSize: '17px',
+
+      '::placeholder': {
+        color: 'grey',
+      },
+    },
+  }
+});
+card.mount('#card-element');
+
+function setOutcome(result) {
+  var successElement = document.querySelector('.success');
+  var errorElement = document.querySelector('.error');
+  successElement.classList.remove('visible');
+  errorElement.classList.remove('visible');
+
+  if (result.token) {
+    // Use the token to create a charge or a customer
+    // https://stripe.com/docs/charges
+    successElement.querySelector('.token').textContent = result.token.id;
+    successElement.classList.add('visible');
+  } else if (result.error) {
+    errorElement.textContent = result.error.message;
+    errorElement.classList.add('visible');
+  }
+}
+
+card.on('change', function(event) {
+  setOutcome(event);
+});
+
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = document.querySelector('form');
+  var extraDetails = {
+    name: form.querySelector('input[name=cardholder-name]').value,
+  };
+  stripe.createToken(card, extraDetails).then(setOutcome);
+});
+</script>
+  
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+</body>
+
+</html>
+
